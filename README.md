@@ -2,37 +2,143 @@
 
 ## Overview
 
-Machine Learning project that detects fraudulent credit card transactions using XGBoost.
+A machine learning project for detecting fraudulent credit card transactions using XGBoost. The project includes data preprocessing, handling class imbalance with SMOTE, model training, and evaluation on a highly imbalanced real-world dataset.
+
+## Features
+
+- Data preprocessing pipeline
+- Stratified train-test split
+- Feature scaling using StandardScaler
+- Class imbalance handling using SMOTE
+- Fraud detection using XGBoost
+- Model evaluation using Precision, Recall, F1-Score, and ROC-AUC
 
 ## Tech Stack
 
 - Python
 - Pandas
+- NumPy
 - Scikit-Learn
 - XGBoost
-- SMOTE
-- FastAPI (coming soon)
+- Imbalanced-Learn (SMOTE)
+- Joblib
+- FastAPI (In Progress)
 
 ## Dataset
 
-Download:
+Download the Credit Card Fraud Detection dataset from Kaggle:
 
-[Kaggle Credit Card Fraud Detection Dataset]
+https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud
 
-Place the file at:
+Place the dataset at:
 
+```text
 data/raw/creditcard.csv
+```
 
-## Run
+## Project Structure
 
-### Preprocess
+```text
+fraud-detection/
+│
+├── data/
+│   ├── raw/
+│   └── processed/
+│
+├── notebooks/
+│   └── EDA.ipynb
+│
+├── ml/
+│   ├── config.py
+│   ├── load_data.py
+│   ├── preprocess.py
+│   ├── train.py
+│   └── evaluate.py
+│
+├── backend/
+│   └── model/
+│
+├── requirements.txt
+├── .gitignore
+└── README.md
+```
 
+## Model Performance
+
+Evaluation on the test dataset:
+
+| Metric | Score |
+|----------|----------|
+| Precision | 0.74 |
+| Recall | 0.86 |
+| F1-Score | 0.79 |
+| ROC-AUC | 0.983 |
+
+### Confusion Matrix
+
+```text
+[[56834    30]
+ [   14    84]]
+```
+
+### Results Summary
+
+- Correctly detected fraudulent transactions: **84**
+- Missed fraudulent transactions: **14**
+- Legitimate transactions incorrectly flagged as fraud: **30**
+- Correctly classified legitimate transactions: **56,834**
+
+## Installation
+
+Clone the repository:
+
+```bash
+git clone <repository-url>
+cd fraud-detection
+```
+
+Create and activate a Conda environment:
+
+```bash
+conda create -n fraud-detection python=3.11
+conda activate fraud-detection
+```
+
+Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+## Running the Project
+
+### 1. Preprocess Data
+
+```bash
 python ml/preprocess.py
+```
 
-### Train
+### 2. Train Model
 
+```bash
 python ml/train.py
+```
 
-### Evaluate
+### 3. Evaluate Model
 
+```bash
 python ml/evaluate.py
+```
+
+## Future Improvements
+
+- FastAPI inference API
+- React dashboard
+- SHAP-based model explainability
+- Docker containerization
+- Cloud deployment
+- Real-time transaction monitoring
+
+## License
+
+This project is intended for educational and portfolio purposes.
