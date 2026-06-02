@@ -93,7 +93,7 @@ Evaluation on the test dataset:
 Clone the repository:
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/Rohit-166/Fraud_detection.git
 cd fraud-detection
 ```
 
