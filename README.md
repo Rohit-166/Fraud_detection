@@ -130,15 +130,35 @@ python ml/train.py
 python ml/evaluate.py
 ```
 
-## Future Improvements
+## API Endpoints
 
-- FastAPI inference API
-- React dashboard
-- SHAP-based model explainability
-- Docker containerization
-- Cloud deployment
-- Real-time transaction monitoring
+### Health Check
 
+```http
+GET /health
+```
+
+### Model Information
+
+```http
+GET /model-info
+```
+
+### Fraud Prediction
+
+```http
+POST /predict
+```
+
+Example Response:
+
+```json
+{
+  "prediction": "Legitimate",
+  "fraud_probability": 0.0002
+}
+```
 ## License
 
 This project is intended for educational and portfolio purposes.
+
