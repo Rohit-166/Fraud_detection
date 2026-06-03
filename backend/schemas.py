@@ -1,4 +1,7 @@
+from typing import List
+
 from pydantic import BaseModel
+
 
 
 class Transaction(BaseModel):
@@ -41,6 +44,11 @@ class PredictionResponse(BaseModel):
     fraud_probability: float
 
 
+class BatchPredictionResponse(BaseModel):
+    predictions: List[str]
+    fraud_probabilities: List[float]
+
+
 class HealthResponse(BaseModel):
     status: str
 
@@ -50,3 +58,13 @@ class ModelInfoResponse(BaseModel):
     roc_auc: float
     precision: float
     recall: float
+
+class FeatureImpact(BaseModel):
+    feature: str
+    impact: float
+
+
+class ExplainResponse(BaseModel):
+    prediction: str
+    fraud_probability: float
+    top_features: List[FeatureImpact]
